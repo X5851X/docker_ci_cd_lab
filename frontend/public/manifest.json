@@ -1,0 +1,8 @@
+{
+  "short_name": "Docker Lab",
+  "name": "Docker CI/CD Lab",
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#000000",
+  "background_color": "#ffffff"
+}

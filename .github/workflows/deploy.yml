@@ -1,0 +1,42 @@
+name: Deploy to Server
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  deploy:
+    name: Deploy Docker App to Remote Server
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Deploy over SSH
+        uses: appleboy/ssh-action@v0.1.10
+        with:
+          host: ${{ secrets.SSH_HOST }}
+          username: ${{ secrets.SSH_USER }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          script: |
+            echo "Pulling latest Docker images..."
+            docker pull yourdocker/frontend:latest
+            docker pull yourdocker/backend:latest
+
+            echo "Stopping old containers if they exist..."
+            docker stop frontend || true
+            docker stop backend || true
+
+            echo "Removing old containers if they exist..."
+            docker rm frontend || true
+            docker rm backend || true
+
+            echo "Running backend container..."
+            docker run -d --name backend -p 5000:5000 yourdocker/backend:latest
+
+            echo "Running frontend container..."
+            docker run -d --name frontend -p 80:80 yourdocker/frontend:latest
+
+            echo "Deployment complete. Containers status:"
+            docker ps -a
