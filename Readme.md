@@ -172,6 +172,6 @@ project-root/
 ---
 
 ## 🙌 Credits
-Created by [[your_docker_hub]](https://github.com/[your_docker_hub]) as a DevOps CI/CD lab project.
+Created by [[X5851X]](https://github.com/X5851X/docker_ci_cd_lab) as a DevOps CI/CD lab project.
 
 Feel free to fork and try it yourself!
