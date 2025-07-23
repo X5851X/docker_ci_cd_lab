@@ -149,28 +149,6 @@ HEALTHCHECK CMD curl --fail http://localhost/health.html || exit 1
 
 ---
 
-## 📂 Project Structure
-```
-project-root/
-├── backend/
-│   ├── index.js
-│   ├── package.json
-│   ├── Dockerfile
-│   └── .env
-├── frontend/
-│   ├── src/
-│   │   └── App.js
-│   ├── Dockerfile
-│   └── .env
-├── docker-compose.yml
-├── .github/workflows/
-│   ├── docker.yml
-│   └── deploy.yml
-└── README.md
-```
-
----
-
 ## 🙌 Credits
 Created by [[X5851X]](https://github.com/X5851X/docker_ci_cd_lab) as a DevOps CI/CD lab project.
 
